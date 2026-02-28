@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MAELPRONO – Pronostics Sportifs VIP</title>
+    <style>
+        /* --- DESIGN BLEU MODERNE --- */
+        :root {
+            --primary-blue: #0052FF;
+            --dark-blue: #0035A3;
+            --light-bg: #f4f7ff;
+            --white: #ffffff;
+            --vip-gold: #FFD700;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--light-bg);
+            color: #333;
+            text-align: center;
+        }
+
+        header {
+            background-color: var(--primary-blue);
+            color: var(--white);
+            padding: 40px 20px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .container {
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+        }
+
+        /* --- COMPTEUR LIVE --- */
+        #live-counter {
+            background: rgba(255, 255, 255, 0.2);
+            display: inline-block;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            margin-top: 10px;
+        }
+
+        /* --- SECTIONS --- */
+        .section {
+            background: var(--white);
+            border-radius: 15px;
+            padding: 30px;
+            margin: 20px 0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        h2 { color: var(--primary-blue); }
+
+        .btn-vip {
+            background-color: var(--vip-gold);
+            color: #000;
+            padding: 15px 30px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 8px;
+            display: inline-block;
+            transition: transform 0.2s;
+        }
+
+        .btn-vip:hover { transform: scale(1.05); }
+
+        /* --- INTERACTIF --- */
+        input[type="text"] {
+            padding: 10px;
+            width: 70%;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+
+        button {
+            background: var(--primary-blue);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>🔵 MAELPRONO</h1>
+        <p>L'expertise football au service de vos gains.</p>
+        <div id="live-counter">👥 <span id="user-count">1000</span> personnes consultent le prono VIP</div>
+    </header>
+
+    <div class="container">
+        
+        <section class="section">
+            <h2>🏆 Accès VIP</h2>
+            <p>Rejoignez le groupe restreint pour des cotes analysées à 95% de réussite.</p>
+            <a href="#" class="btn-vip">VOIR LES ABONNEMENTS</a>
+        </section>
+
+        <section class="section">
+            <h2>🔥 Challenge de la Semaine</h2>
+            <p>Question : <i>"Quel pays a gagné la Coupe du Monde 2022 ?"</i></p>
+            <input type="text" id="answer" placeholder="Ta réponse ici...">
+            <button onclick="checkChallenge()">Valider</button>
+            <p id="result-msg"></p>
+        </section>
+
+        <section class="section" style="background: #eef4ff;">
+            <h2>👥 Parrainage</h2>
+            <p>Invite 3 amis et gagne <b>1 semaine gratuite</b> !</p>
+            <p>Ton code : <b>MAEL-PRO-2024</b></p>
+        </section>
+
+    </div>
+
+    <script>
+        // 1. Logique du compteur dynamique
+        let count = 1000;
+        setInterval(() => {
+            count += Math.floor(Math.random() * 4); // Augmente doucement
+            document.getElementById('user-count').innerText = count;
+        }, 4000);
+
+        // 2. Logique du challenge
+        function checkChallenge() {
+            const answer = document.getElementById('answer').value.toLowerCase();
+            const msg = document.getElementById('result-msg');
+            
+            if(answer === "argentine") {
+                msg.style.color = "green";
+                msg.innerHTML = "✅ BRAVO ! Ton mot de passe VIP est : <b>GOAT2024</b>";
+            } else {
+                msg.style.color = "red";
+                msg.innerText = "❌ Mauvaise réponse, réessaie !";
+            }
+        }
+    </script>
+
+</body>
+</html>
